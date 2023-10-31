@@ -1,7 +1,5 @@
 """sphinx_bootcampstrap"""
 
-
-
 import importlib.metadata
 from typing import TYPE_CHECKING
 
@@ -16,15 +14,15 @@ from .betternodes import depart_table, visit_table
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
 
-__name__ = "MODULE-NAME" # FIXME
+__name__ = "sphinx-bootcampstrap"
 __version__ = importlib.metadata.version(__name__)
 
 module_dir = Path(path.abspath(path.dirname(__file__)))
 assets_dir = module_dir / "assets"
 
 css_files = [
-    ("bs-seibootcamps.css", {}),
-    ("bs-seibootcamps.css.map", {}),
+    ("bootcampstrap.css", {}),
+    ("bootcampstrap.css.map", {}),
 ]
 
 js_files = [

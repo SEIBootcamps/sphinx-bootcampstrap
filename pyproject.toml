@@ -10,6 +10,7 @@ packages = [{include = "sphinx_bootcampstrap", from = "src"}]
 [tool.poetry.dependencies]
 python = ">=3.8,<4"
 sphinx = ">=6,<8"
+bootcamps-sphinxutils = {path = "../bootcamps-sphinxutils"}
 
 [tool.poetry.build]
 script = "build.py"

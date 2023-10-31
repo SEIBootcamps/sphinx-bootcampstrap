@@ -3,9 +3,10 @@
 from typing import TYPE_CHECKING
 
 from sphinx.writers.html5 import HTML5Translator
+from docutils import nodes
 
 if TYPE_CHECKING:
-    from docutils import nodes
+    from sphinx.application import Sphinx
 
 
 def visit_table(self, node: "nodes.table") -> None:
@@ -18,3 +19,7 @@ def visit_table(self, node: "nodes.table") -> None:
 def depart_table(self, node: "nodes.table") -> None:
     super(HTML5Translator, self).depart_table(node)
     self.body.append("</div>")
+
+
+def setup(app: "Sphinx") -> None:
+    app.add_node(nodes.table, html=(visit_table, depart_table), override=True)

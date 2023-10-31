@@ -1,16 +1,4 @@
-"""sphinx_seibootcamps.bs.roles
-
-These roles depend on Bootstrap. Don't put generic roles here.
-"""
-
-from typing import TYPE_CHECKING
-
-from docutils import nodes
-
-from ..roles.utils import get_role_function
-
-if TYPE_CHECKING:
-    from sphinx.application import Sphinx
+"""sphinx_bootcampstrap.roles.constants"""
 
 COLOR_ROLES = {
     "blue": ["text-blue"],
@@ -51,13 +39,3 @@ COLOR_ROLES = {
     "secondary": ["text-body-secondary"],
     "tertiary": ["text-body-tertiary"],
 }
-
-
-def add_color_roles(app: "Sphinx") -> None:
-    for role_name in COLOR_ROLES:
-        app.add_role(
-            role_name,
-            get_role_function(
-                nodes.inline, opts_fn=lambda: {"classes": COLOR_ROLES[role_name]}
-            ),
-        )

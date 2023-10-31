@@ -62,6 +62,19 @@ setuptools = {version = "*", markers = "python_version >= \"3.12\""}
 dev = ["freezegun (>=1.0,<2.0)", "pytest (>=6.0)", "pytest-cov"]
 
 [[package]]
+name = "bootcamps-sphinxutils"
+version = "0.1.0"
+description = ""
+optional = false
+python-versions = ">=3.8,<4"
+files = []
+develop = false
+
+[package.source]
+type = "directory"
+url = "../bootcamps-sphinxutils"
+
+[[package]]
 name = "cattrs"
 version = "23.1.2"
 description = "Composable complex class support for attrs and dataclasses."
@@ -1367,4 +1380,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<4"
-content-hash = "c492408807beed62b426d9a8085cb7ae8b5b3502d9bb354e5458dd0ccd4c139a"
+content-hash = "46ec938829f505fb02ddc8d463518b63b9a49aa967a6292487adb5f7b806d274"

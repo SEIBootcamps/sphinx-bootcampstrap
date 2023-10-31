@@ -1,6 +1,12 @@
 """sphinx_bootcampstrap.icons.constants"""
 
-BS_ICONS = [  # from bootstrap-icons/font/bootstrap-icons.json
+BS_ICONS_FILENAME = (
+    "bootstrap-icons.svg"
+)  # this should be the file from node_modules/bootstrap-icons/bootstrap-icons.svg
+
+BS_ICONS_PREFIX = "bi-"
+
+BS_ICONS = [  # names taken from node_modules/bootstrap-icons/font/bootstrap-icons.json
     "123",
     "alarm-fill",
     "alarm",

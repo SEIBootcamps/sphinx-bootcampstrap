@@ -1,3 +1,5 @@
+# FIXME: this shit needs to move to sphinx-handouts
+
 from typing import TYPE_CHECKING
 
 from sphinx.writers.html5 import HTML5Translator

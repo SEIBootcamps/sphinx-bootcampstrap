@@ -5,8 +5,8 @@ git-hooks:
 build: css sphinx
 
 sphinx:
-  @rm -rf examples/kitchen-sink/_build
-  @poetry run sphinx-build -b html -d examples/kitchen-sink/_build/doctrees -n examples/kitchen-sink examples/kitchen-sink/_build/html
+  @rm -rf examples/_build
+  @poetry run sphinx-build -b html -d examples/_build/doctrees -n examples/ examples/_build/html
 
 css:
   yarn run build

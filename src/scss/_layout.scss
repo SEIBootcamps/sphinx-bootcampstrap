@@ -1,0 +1,59 @@
+/// scss/_layout.scss
+/// Styles for layout of default theme.
+
+$sidebar-min-width: 200px !default;
+$sidebar-max-width: 300px !default;
+$main-min-width: auto !default;
+$main-max-width: 800px !default;
+
+%below-theme-toggler {
+  z-index: 1000;
+}
+
+.seibootcamps-layout {
+  @extend %below-theme-toggler;
+
+  grid-template-areas: "sidebar main";
+  grid-template-columns:
+    minmax($sidebar-min-width, $sidebar-max-width)
+    minmax($main-min-width, $main-max-width);
+  @include padding(map-get($spacers, 4));
+}
+
+@include media-breakpoint-up(lg) {
+  .seibootcamps-layout {
+    padding-block: 0;
+    padding-inline: 0 12.5%;
+  }
+}
+
+.seibootcamps-sidebar {
+  @extend %below-theme-toggler;
+
+  @include padding-left(map-get($spacers, 4));
+  @include padding-right(map-get($spacers, 4));
+  @include padding-bottom(map-get($spacers, 4));
+  @include padding-top(map-get($spacers, 5));
+  @include font-size($font-size-base * 0.8);
+
+  grid-area: sidebar;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.seibootcamps-main {
+  @extend %below-theme-toggler;
+
+  @include padding-top(map-get($spacers, 4));
+  @include padding-bottom(map-get($spacers, 4));
+
+  grid-area: main;
+  grid-template: "content" auto / 100%;
+  gap: inherit;
+}
+
+.seibootcamps-document {
+  @extend %below-theme-toggler;
+
+  grid-area: content;
+}

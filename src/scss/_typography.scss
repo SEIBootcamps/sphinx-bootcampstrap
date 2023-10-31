@@ -1,0 +1,46 @@
+/// scss/_typography.scss
+/// Styles for typography. Keep rules contained under .seibootcamps-document unless you know
+/// what you're doing.
+
+.seibootcamps-document {
+  // Title of the document
+  section {
+    @include margin-top($spacer * 2);
+    @include margin-bottom($spacer * 2);
+
+    > h1 {
+      @include font-size($font-size-base * 3);
+    }
+  }
+
+  // Section headings
+  $section-headings: (
+    h2: $spacer * 3,
+    h3: $spacer * 2,
+  );
+  @each $h, $mt in $section-headings {
+    section > section > #{$h} {
+      @include margin-top($mt);
+    }
+  }
+
+  li > p {
+    @include margin-bottom(map-get($spacers, 1));
+  }
+
+  cite {
+    font-weight: 500;
+    color: var(--bs-emphasis-color);
+  }
+
+  pre {
+    @include font-size(0.8em);
+  }
+
+  .caption-text {
+    @include font-size($font-size-sm);
+
+    font-style: italic;
+    color: var(--bs-secondary-color);
+  }
+}

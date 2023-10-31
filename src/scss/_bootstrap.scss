@@ -1,0 +1,100 @@
+/// scss/_bootstrap.scss
+/// All Bootstrap related imports go here.
+
+// Bootstrap's RFS engine
+// See: https://getbootstrap.com/docs/5.0/getting-started/rfs/
+@import "rfs/scss";
+
+// Required
+@import "bootstrap/scss/functions";
+
+// Variable overrides
+$enable-cssgrid: true;
+$font-size-base: 1.16rem;
+$body-color-dark: #ccd1d6;
+$table-color: var(--bs-body-color);
+
+// Required
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+
+// Components
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar"; // Requires nav
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/offcanvas"; // Requires transitions
+
+// Utils
+@import "bootstrap/scss/helpers";
+
+// Generate utility classes
+$sei-colors: (
+  "blue": $blue,
+  "blue-light": $blue-300,
+  "blue-dark": $blue-700,
+  "indigo": $indigo,
+  "indigo-light": $indigo-300,
+  "indigo-dark": $indigo-700,
+  "purple": $purple,
+  "purple-light": $purple-300,
+  "purple-dark": $purple-700,
+  "pink": $pink,
+  "pink-light": $pink-300,
+  "pink-dark": $pink-700,
+  "red": $red,
+  "red-light": $red-300,
+  "red-dark": $red-700,
+  "orange": $orange,
+  "orange-light": $orange-300,
+  "orange-dark": $orange-700,
+  "yellow": $yellow,
+  "yellow-light": $yellow-300,
+  "yellow-dark": $yellow-700,
+  "green": $green,
+  "green-light": $green-300,
+  "green-dark": $green-700,
+  "teal": $teal,
+  "teal-light": $teal-300,
+  "teal-dark": $teal-700,
+  "cyan": $cyan,
+  "cyan-light": $cyan-300,
+  "cyan-dark": $cyan-700,
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color":
+      map-merge(
+        map-get($utilities, "color"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "color"), "values"),
+              ($sei-colors)
+            ),
+        )
+      ),
+  )
+);
+
+@import "bootstrap/scss/utilities/api";

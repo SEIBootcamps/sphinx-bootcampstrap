@@ -1,0 +1,14 @@
+dd {
+  p {
+    @include margin-bottom(map-get($spacers, 2));
+  }
+}
+
+dl {
+  dd {
+    @include padding-left($spacer);
+
+    margin-bottom: 0;
+    line-height: $nested-line-height;
+  }
+}

@@ -1,0 +1,10 @@
+.compare {
+  @extend %seibootcamps-layout-full-width;
+
+  display: flex;
+  gap: $spacer;
+
+  & > * {
+    flex: 1 0 0;
+  }
+}

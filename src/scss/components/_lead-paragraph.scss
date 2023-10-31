@@ -1,0 +1,20 @@
+.seibootcamps-document {
+  & > section > p:first-of-type {
+    @extend .lead;
+
+    %lead-inline {
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    code {
+      @extend %lead-inline;
+    }
+
+    cite {
+      @extend %lead-inline;
+
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.seibootcamps-theme-toggler {
+  @include padding(map-get($spacers, 2));
+
+  .theme-icon,
+  .theme-icon-active {
+    width: 16px;
+    height: 16px;
+    fill: var(--bs-secondary-color);
+  }
+
+  .dropdown-menu {
+    z-index: 1050;
+  }
+}

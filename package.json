@@ -1,0 +1,38 @@
+{
+  "name": "bootcampstrap",
+  "description": "Dependencies used to compile SASS files.",
+  "author": "Ashley Trinh <itsashley@hey.com>",
+  "private": true,
+  "scripts": {
+    "build": "npm-run-all --parallel css:lint css icons",
+    "css": "npm-run-all css:compile css:prefix",
+    "css:compile": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules src/scss/:src/sphinx_bootcampstrap/assets",
+    "css:prefix": "postcss --replace src/sphinx_bootcampstrap/assets/bootcampstrap.css --use autoprefixer --map",
+    "css:lint": "stylelint src/scss/",
+    "icons": "cp node_modules/bootstrap-icons/bootstrap-icons.svg src/sphinx_bootcampstrap/assets/bootstrap-icons.svg",
+    "test": "npm run-all css:lint css",
+    "dev:css": "sass --style compressed --source-map --embed-sources --no-error-css --load-path=node_modules src/scss/:examples/kitchen-sink/_build/html/_static",
+    "dev:server": "browser-sync start --server 'examples/kitchen-sink/_build/html' --files 'examples/kitchen-sink/_build/html/_static'",
+    "dev": "npm-run-all --parallel watch dev:server",
+    "watch": "nodemon -e html,scss -x npm run dev:css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.1",
+    "rfs": "^10.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "browser-sync": "^2.29.3",
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-prettier": "^4.0.2",
+    "stylelint-scss": "^5.3.0"
+  }
+}

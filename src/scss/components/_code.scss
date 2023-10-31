@@ -1,0 +1,27 @@
+%code-block {
+  background: var(--bs-tertiary-bg);
+}
+
+.highlight {
+  @extend .card;
+  @include margin-bottom($spacer);
+
+  max-height: rfs-fluid-value(300px);
+  overflow: scroll scroll;
+  color: inherit;
+
+  & > pre {
+    @extend .card-body;
+    @extend %code-block;
+
+    margin-bottom: 0;
+  }
+}
+
+.literal-block {
+  @extend .card;
+  @extend .card-body;
+  @extend %code-block;
+
+  display: block;
+}

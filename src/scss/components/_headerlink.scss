@@ -1,0 +1,22 @@
+$headerlink-parents: h1, h2, h3, h4, h5, h6, caption, ".code-block-caption";
+
+.headerlink {
+  @extend .stretched-link;
+  @extend .float-end;
+
+  text-decoration: none;
+  opacity: 0;
+  transition: $transition-fade;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.seibootcamps-document {
+  @each $parent in $headerlink-parents {
+    #{$parent} {
+      position: relative;
+    }
+  }
+}

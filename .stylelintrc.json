@@ -1,0 +1,25 @@
+{
+  "plugins": ["stylelint-scss"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-prettier/recommended"
+  ],
+  "reportInvalidScopeDisables": true,
+  "reportNeedlessDisables": true,
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "rules": {
+        "at-rule-empty-line-before": null,
+        "scss/selector-no-union-class-name": true,
+        "scss/at-function-named-arguments": null,
+        "scss/selector-no-redundant-nesting-selector": null,
+        "scss/at-import-no-partial-leading-underscore": null,
+        "scss/load-no-partial-leading-underscore": true,
+        "scss/dollar-variable-empty-line-before": null,
+        "scss/at-extend-no-missing-placeholder": null,
+        "scss/no-global-function-names": null
+      }
+    }
+  ]
+}

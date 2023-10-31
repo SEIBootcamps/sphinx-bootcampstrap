@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "lextudio.restructuredtext",
+    "trond-snekvik.simple-rst",
+    "chrislajoie.vscode-modelines"
+  ]
+}

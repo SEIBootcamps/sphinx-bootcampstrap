@@ -1,0 +1,23 @@
+.epigraph {
+  @include padding-left($spacer);
+  @include padding-right($spacer);
+  @include padding-top($spacer * 0.25);
+  @include padding-bottom($spacer * 0.25);
+
+  border-left: 1px solid var(--bs-emphasis-color);
+
+  p {
+    @extend .lead;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .attribution {
+    @include font-size($small-font-size);
+
+    font-weight: 400;
+    color: var(--bs-tertiary-color);
+  }
+}

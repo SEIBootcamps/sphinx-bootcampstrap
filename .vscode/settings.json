@@ -1,0 +1,7 @@
+{
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "esbonio.sphinx.confDir": "examples/kitchen-sink"
+}

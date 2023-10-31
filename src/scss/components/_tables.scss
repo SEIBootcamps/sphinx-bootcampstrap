@@ -1,0 +1,20 @@
+table {
+  &:not(.hlist) {
+    @extend .table;
+    @extend .caption-top;
+
+    line-height: $nested-line-height;
+  }
+}
+
+th,
+td {
+  & > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.table-scroller {
+  max-width: 100%;
+  overflow-x: scroll;
+}

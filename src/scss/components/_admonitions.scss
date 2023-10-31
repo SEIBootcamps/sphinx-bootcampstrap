@@ -1,0 +1,151 @@
+/// scss/components/_admonitions.scss
+/// Admonitions.
+
+$admonition-types: (
+  attention: (
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)",
+  ),
+  caution: (
+    color: "var(--bs-warning-text-emphasis)",
+    bg: "var(--bs-warning-bg-subtle)",
+    border: "var(--bs-warning-border-subtle)",
+  ),
+  danger: (
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)",
+  ),
+  error: (
+    color: "var(--bs-danger-text-emphasis)",
+    bg: "var(--bs-danger-bg-subtle)",
+    border: "var(--bs-danger-border-subtle)",
+  ),
+  important: (
+    color: "var(--bs-info-text-emphasis)",
+    bg: "var(--bs-info-bg-subtle)",
+    border: "var(--bs-info-border-subtle)",
+  ),
+  note: (
+    color: "var(--bs-primary-text-emphasis)",
+    bg: "var(--bs-primary-bg-subtle)",
+    border: "var(--bs-primary-border-subtle)",
+  ),
+  tip: (
+    color: "var(--bs-info-text-emphasis)",
+    bg: "var(--bs-info-bg-subtle)",
+    border: "var(--bs-info-border-subtle)",
+  ),
+  warning: (
+    color: "var(--bs-warning-text-emphasis)",
+    bg: "var(--bs-warning-bg-subtle)",
+    border: "var(--bs-warning-border-subtle)",
+  ),
+  hint: (
+    color: "var(--bs-success-text-emphasis)",
+    bg: "var(--bs-success-bg-subtle)",
+    border: "var(--bs-success-border-subtle)",
+  ),
+);
+
+// Generate list of admonition class selectors.
+@function make-admonition-classes($types-map) {
+  $admonition-classes: ();
+  @each $type, $colors in $types-map {
+    $admonition-classes: append(
+      $admonition-classes,
+      unquote(".#{$type}"),
+      $separator: comma
+    );
+  }
+  @return $admonition-classes;
+}
+
+// Subtitles display the type of admonition, i.e. 'hint'
+%admonition-type-subtitle {
+  @include rfs(0.1em, letter-spacing);
+
+  display: block;
+  font-weight: 800;
+  font-variant: small-caps;
+  color: var(--admonition-color);
+  text-transform: lowercase;
+}
+
+.admonition-title {
+  @include font-size(1rem);
+
+  font-weight: 300;
+
+  & > * {
+    color: inherit;
+  }
+}
+
+// Default admonition.
+.admonition {
+  @extend .rounded;
+  @extend .border;
+
+  @include font-size(0.9em);
+  @include rfs(4px !important, border-left-width);
+  @include padding-top(map-get($spacers, 3));
+  @include padding-bottom(map-get($spacers, 3));
+  @include padding-left(map-get($spacers, 4));
+  @include padding-right(map-get($spacers, 4));
+  @include margin-bottom(map-get($spacers, 4));
+
+  --admonition-color: var(--bs-secondary);
+  --admonition-background: var(--bs-secondary-bg-subtle);
+  --admonition-border-color: var(--bs-secondary-border-subtle);
+
+  line-height: $nested-line-height;
+  color: var(--bs-secondary-color);
+  background: var(--admonition-background);
+  border-color: transparent transparent transparent
+    var(--admonition-border-color) !important;
+
+  & > *:first-child:not(.admonition-title) {
+    @include margin-top(map-get($spacers, 2));
+  }
+
+  & > p:last-child,
+  &.hint > details > p:last-child {
+    margin-bottom: 0;
+  }
+
+  .admonition-title {
+    color: var(--admonition-color);
+  }
+
+  // If this is a generic admontion, use its title as the subtitle.
+  &:not(#{make-admonition-classes($admonition-types)}) {
+    .admonition-title {
+      @extend %admonition-type-subtitle;
+    }
+  }
+
+  // Styles for admonition types from $admonition-types.
+  @each $type, $colors in $admonition-types {
+    &.#{$type} {
+      --admonition-color: #{map-get($colors, "color")};
+      --admonition-background: #{map-get($colors, "bg")};
+      --admonition-border-color: #{map-get($colors, "border")};
+
+      &::before {
+        @extend %admonition-type-subtitle;
+
+        content: "#{$type}";
+      }
+    }
+  }
+}
+
+.hint {
+  summary {
+    // "Click to reveal hint" text
+    font-style: italic;
+    font-weight: 300;
+  }
+}

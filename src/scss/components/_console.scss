@@ -1,0 +1,40 @@
+$color-mode-type: data;
+
+$console-color: $gray-100 !default;
+$console-bg: $gray-800 !default;
+$console-border-color: $gray-600 !default;
+$console-cmd-color: tint-color($warning, 40%) !default;
+$console-dark-color: inherit !default;
+$console-dark-bg: $dark-bg-subtle-dark !default;
+$console-dark-border-color: $gray-800 !default;
+
+.console {
+  --#{$prefix}console-color: #{$console-color};
+  --#{$prefix}console-bg: #{$console-bg};
+  --#{$prefix}console-border-color: #{$console-border-color};
+  --#{$prefix}console-cmd-color: #{$console-cmd-color};
+
+  color: var(--#{$prefix}console-color);
+  background: var(--#{$prefix}console-bg);
+  border-color: var(--#{$prefix}console-border-color);
+  border-radius: var(--bs-border-radius);
+
+  .cmd {
+    color: var(--#{$prefix}console-cmd-color);
+  }
+
+  .highlight,
+  pre {
+    color: inherit;
+    background: inherit;
+    border-color: inherit;
+  }
+}
+
+@include color-mode(dark) {
+  .console {
+    --#{$prefix}console-color: #{$console-dark-color};
+    --#{$prefix}console-bg: #{$console-dark-bg};
+    --#{$prefix}console-border-color: #{$console-dark-border-color};
+  }
+}

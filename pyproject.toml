@@ -6,6 +6,7 @@ license = "MPL-2.0"
 authors = ["Ashley Trinh <itsashley@hey.com>"]
 readme = "README.md"
 packages = [{include = "sphinx_bootcampstrap", from = "src"}]
+include = ["src/sphinx_bootcampstrap/assets/*"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4"

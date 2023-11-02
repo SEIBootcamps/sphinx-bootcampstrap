@@ -11,7 +11,7 @@ Adding this extension will load all features. To selectively load features, use 
 import importlib.metadata
 from typing import TYPE_CHECKING
 
-from . import core, roles, icons, toc_enhanced, betternodes
+from . import core, roles, icons, toc_enhanced, betternodes, components
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
@@ -24,5 +24,6 @@ def setup(app: "Sphinx") -> None:
     core.setup(app)
     roles.setup(app)
     icons.setup(app)
+    components.setup(app)
     toc_enhanced.setup(app)
     betternodes.setup(app)

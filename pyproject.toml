@@ -13,7 +13,6 @@ python = ">=3.8,<4"
 sphinx = ">=6,<8"
 
 [tool.poetry.build]
-script = "build.py"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.3"

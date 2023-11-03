@@ -4,7 +4,6 @@ node_modules
 __pycache__
 *.pyc
 yarn-error.log
-src/sphinx_bootcampstrap/assets/*
 dist
 .ruff_cache
 .DS_store

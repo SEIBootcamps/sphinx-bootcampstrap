@@ -3,9 +3,9 @@
 from typing import TYPE_CHECKING
 
 from docutils import nodes
-from bootcamps_sphinxutils.roleutils import get_role_function
 
 from .constants import COLOR_ROLES
+from ..util.rst import get_role_function
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx

@@ -1,5 +1,7 @@
-====
-Test
-====
+========
+Examples
+========
 
-Testing.
+.. toctree::
+
+   ./kitchen-sink
